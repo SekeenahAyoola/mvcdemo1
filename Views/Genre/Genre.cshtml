@@ -1,0 +1,29 @@
+@model IEnumerable<Book> 
+@{
+    ViewData["Title"] = @ViewBag.genreName;
+}
+<div>
+    <table class="table table-active table-bordered table-responsive table-striped">
+        <thead>
+            <tr>
+                <td>Id</td> <td>Name</td> <td>Available</td><td>Genre</td> <td>View</td>
+            </tr>
+        </thead>
+                <tbody>
+                @foreach (var book in Model)
+                {
+                    <tr>
+                        <td>@book.Id</td>
+                        <td>@book.Name</td>
+                        <td>@book.IsAvailable</td>
+                        <td>@book.Genre</td>
+                        <td>
+                            <a asp-controller="Book" asp-action="Book" asp-route-id="@book.Id">View</a>
+                        </td>
+                    </tr>
+                }
+                </tbody>   
+
+    </table>
+</div>
+<h5><a asp-controller="Genre" asp-action="Genres">BACK</a></h5>

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Genre>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4"><b>B</b>ulky<b>B</b>ook<em>s</em></h1>
+    <h4>Do you enjoy reading? Then you are at the right place</h4>
+
+</div>
+
+<p>Here is a preview of our available Genre </p>
+<ul>
+@foreach (var item in Model)
+{
+    <li>
+       <a asp-controller="Genre" asp-action="Genre"asp-route-id="@item.Id">@item.Name</a> 
+    </li>
+}
+</ul>
+<p></p>

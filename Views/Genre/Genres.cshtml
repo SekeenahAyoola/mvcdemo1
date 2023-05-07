@@ -1,0 +1,27 @@
+@model IEnumerable<Genre>
+@{
+    ViewData["Title"] = "Genres";
+}
+<div>
+    <table class="table table-active table-bordered table-responsive table-striped">
+        <thead>
+            <tr>
+                <td>Id</td> <td>Name</td> <td>View List</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var genre in Model)
+            {
+                <tr>
+                    <td>@genre.Id</td>
+                    <td>@genre.Name</td>
+                    <td>
+                        <a asp-controller="Genre" asp-action="Genre" asp-route-id="@genre.Id">List of Books</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+
+    </table>
+</div>

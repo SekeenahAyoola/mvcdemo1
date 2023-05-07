@@ -1,0 +1,40 @@
+@model  BulkyBooksmvc.ViewModels.CreateBookViewModel
+@{
+    ViewData["Title"] = "AddBook";
+}
+
+<p>Fill the form below to add new book</p>
+<div>
+    <form enctype="multipart/form-data" asp-action="Add">
+        <div class="form-control">
+            <div>
+                <label>Name</label>
+                <input type="text" asp-for="Name"/>
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div>
+                <label>Genre</label>
+                <input type="text" asp-for="Genre"/>
+                <span asp-validation-for="Genre"></span>
+            </div>
+            <div>
+                <label asp-for="coverImage"></label>
+                <input asp-for="coverImage"/>
+            </div>
+            <p>If genre already exist click submit</p>
+            <div>
+                <input class="btn btn-primary" type="submit" value="Submit"/>
+            </div>
+        </div>
+    </form>
+</div>
+<div>
+    <h5>Want to Add book to new Genre<a asp-controller="Genre" asp-action="Add"> -- Click here to add genre</a></h5>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
